@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="notasAlto">90dp</dimen>
-    <dimen name="notaAncho">133dp</dimen>
+    <dimen name="notasAlto">37dp</dimen>
+    <dimen name="notaAncho">72dp</dimen>
+    <dimen name="altoDeLineas">76dp</dimen>
 </resources>
