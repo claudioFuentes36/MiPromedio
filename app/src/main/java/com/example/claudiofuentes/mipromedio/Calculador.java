@@ -82,60 +82,70 @@ public class Calculador extends AppCompatActivity {
     private void asignacionVariables(){
 
         EditText texto = (EditText) findViewById(R.id.txtNota1);
-        //if (!texto.getText().equals("")){nota[0] = Double.parseDouble(texto.getText().toString());}else{nota[0]=0;}
+        if (!texto.getText().toString().isEmpty()){nota[0] = Double.parseDouble(texto.getText().toString());}else{nota[0]=1;}
         nota[0]=Double.parseDouble(texto.getText().toString());
         texto=(EditText) findViewById(R.id.txtNota2);
-        if (!texto.getText().equals("")){nota[1] = Double.parseDouble(texto.getText().toString());}
+        if (!texto.getText().toString().isEmpty()){nota[1] = Double.parseDouble(texto.getText().toString());}
         texto=(EditText) findViewById(R.id.txtNota3);
-        if (!texto.getText().equals("")){nota[2] = Double.parseDouble(texto.getText().toString());}
+        if (!texto.getText().toString().isEmpty()){nota[2] = Double.parseDouble(texto.getText().toString());}
         texto=(EditText) findViewById(R.id.txtNota4);
-        if (!texto.getText().equals("")){nota[3] = Double.parseDouble(texto.getText().toString());}
+        if (!texto.getText().toString().isEmpty()){nota[3] = Double.parseDouble(texto.getText().toString());}
         texto=(EditText) findViewById(R.id.txtNota5);
-        if (!texto.getText().equals("")){nota[4] = Double.parseDouble(texto.getText().toString());}
+        if (!texto.getText().toString().isEmpty()){nota[4] = Double.parseDouble(texto.getText().toString());}
         texto=(EditText) findViewById(R.id.txtNota6);
-        if (!texto.getText().equals("")){nota[5] = Double.parseDouble(texto.getText().toString());}
+        if (!texto.getText().toString().isEmpty()){nota[5] = Double.parseDouble(texto.getText().toString());}
         texto=(EditText) findViewById(R.id.txtNota7);
-        if (!texto.getText().equals("")){nota[6] = Double.parseDouble(texto.getText().toString());}
+        if (!texto.getText().toString().isEmpty()){nota[6] = Double.parseDouble(texto.getText().toString());}
         texto=(EditText) findViewById(R.id.txtNota8);
-        if (!texto.getText().equals("")){nota[7] = Double.parseDouble(texto.getText().toString());}
+        if (!texto.getText().toString().isEmpty()){nota[7] = Double.parseDouble(texto.getText().toString());}
         texto=(EditText) findViewById(R.id.txtNota9);
-        if (!texto.getText().equals("")){nota[8] = Double.parseDouble(texto.getText().toString());}
+        if (!texto.getText().toString().isEmpty()){nota[8] = Double.parseDouble(texto.getText().toString());}
         texto=(EditText) findViewById(R.id.txtNota10);
-        if (!texto.getText().equals("")){nota[9] = Double.parseDouble(texto.getText().toString());}
+        if (!texto.getText().toString().isEmpty()){nota[9] = Double.parseDouble(texto.getText().toString());}
 
 
 
         texto=(EditText) findViewById(R.id.txtPorc1);
-        if (!texto.getText().equals("")){porc[0] = Double.parseDouble(texto.getText().toString());}
+        if (!texto.getText().toString().isEmpty()){porc[0] = Double.parseDouble(texto.getText().toString());}else{porc[0]=100;}
         texto=(EditText) findViewById(R.id.txtPorc2);
-        if (!texto.getText().equals("")){porc[1] = Double.parseDouble(texto.getText().toString());}
+        if (!texto.getText().toString().isEmpty()){porc[1] = Double.parseDouble(texto.getText().toString());}
         texto=(EditText) findViewById(R.id.txtPorc3);
-        if (!texto.getText().equals("")){porc[2] = Double.parseDouble(texto.getText().toString());}
+        if (!texto.getText().toString().isEmpty()){porc[2] = Double.parseDouble(texto.getText().toString());}
         texto=(EditText) findViewById(R.id.txtPorc4);
-        if (!texto.getText().equals("")){porc[3] = Double.parseDouble(texto.getText().toString());}
+        if (!texto.getText().toString().isEmpty()){porc[3] = Double.parseDouble(texto.getText().toString());}
         texto=(EditText) findViewById(R.id.txtPorc5);
-        if (!texto.getText().equals("")){porc[4] = Double.parseDouble(texto.getText().toString());}
+        if (!texto.getText().toString().isEmpty()){porc[4] = Double.parseDouble(texto.getText().toString());}
         texto=(EditText) findViewById(R.id.txtPorc6);
-        if (!texto.getText().equals("")){porc[5] = Double.parseDouble(texto.getText().toString());}
+        if (!texto.getText().toString().isEmpty()){porc[5] = Double.parseDouble(texto.getText().toString());}
         texto=(EditText) findViewById(R.id.txtPorc7);
-        if (!texto.getText().equals("")){porc[6] = Double.parseDouble(texto.getText().toString());}
+        if (!texto.getText().toString().isEmpty()){porc[6] = Double.parseDouble(texto.getText().toString());}
         texto=(EditText) findViewById(R.id.txtPorc8);
-        if (!texto.getText().equals("")){porc[7] = Double.parseDouble(texto.getText().toString());}
+        if (!texto.getText().toString().isEmpty()){porc[7] = Double.parseDouble(texto.getText().toString());}
         texto=(EditText) findViewById(R.id.txtPorc9);
-        if (!texto.getText().equals("")){porc[8] = Double.parseDouble(texto.getText().toString());}
+        if (!texto.getText().toString().isEmpty()){porc[8] = Double.parseDouble(texto.getText().toString());}
         texto=(EditText) findViewById(R.id.txtPorc10);
-        if (!texto.getText().equals("")){porc[9] = Double.parseDouble(texto.getText().toString());}
+        if (!texto.getText().toString().isEmpty()){porc[9] = Double.parseDouble(texto.getText().toString());}
     }
     private double calcularBruto(){
         //EditText texto = (EditText) findViewById(R.id.txtNota1);
         //nota[0] = Double.parseDouble(texto.getText().toString());
         double total = 0;
         for (int i =0;i<10;i++){
-            total=total + nota[i];
+            total=total + porcNota[i];
         }
        TextView txt=(TextView)findViewById(R.id.notaBruto);
         txt.setText(""+total);
         return total;
+    }
+    private void calcularPromedio(double promBruto){
+        double examen=1;
+        promBruto=(promBruto*0.6);
+        EditText texam = (EditText)findViewById(R.id.examen);
+        if (!texam.getText().toString().isEmpty()){examen=Double.parseDouble(texam.getText().toString());}else {examen=1;}
+        examen=(examen*0.4);
+        double promFinal = promBruto+examen;
+        TextView pFinal = (TextView)findViewById(R.id.promedioFinal);
+        pFinal.setText(""+promFinal);
     }
     private void calcularNotaRequerida(double bruto){
         double descontado   =   bruto*0.6;
@@ -148,7 +158,7 @@ public class Calculador extends AppCompatActivity {
             Toast.makeText(getApplicationContext(),"Felicidades pasaste el año",Toast.LENGTH_LONG).show();
         }
         else if(necesario>7){
-            Toast.makeText(getApplicationContext(),"Mejor suerte el próximo año, no haz pasado",Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(),"Mejor suerte el próximo año, no tienes opción de pasar",Toast.LENGTH_LONG).show();
         }
         TextView txt=(TextView)findViewById(R.id.necEnExamen);
         txt.setText(""+necesario);
