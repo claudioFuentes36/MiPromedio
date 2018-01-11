@@ -21,6 +21,8 @@ public class Calculador extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calculador);
         calcular = (Button) findViewById(R.id.btnCalcular);
+        nota[0]=1;
+        porc[0]=100;
 
 
         calcular.setOnClickListener(new View.OnClickListener(){
@@ -29,6 +31,7 @@ public class Calculador extends AppCompatActivity {
             }
         });
     }
+
     private void calcularPromedio(){
         asignacionVariables();
 
@@ -39,12 +42,12 @@ public class Calculador extends AppCompatActivity {
                 }
                 else{
                     porcNota[i]=0;
-                    //Toast.makeText(getApplicationContext(),""+nota[i],Toast.LENGTH_LONG).show();
                 }
             }
             asignacionVariables(true);
 
             calcularNotaRequerida(calcularBruto());
+            calcularPromedioFinal(calcularBruto());
 
 
 
@@ -57,24 +60,34 @@ public class Calculador extends AppCompatActivity {
         if (inversa){
             TextView textView=(TextView)findViewById(R.id.lblPromedio1);
             textView.setText(""+porcNota[0]);
+            if (textView.getText().toString().length()>4){textView.getText().toString().substring(1,4);}
             textView=(TextView)findViewById(R.id.lblPromedio2);
             textView.setText(""+porcNota[1]);
+            if (textView.getText().toString().length()>4){textView.getText().toString().substring(1,4);}
             textView=(TextView)findViewById(R.id.lblPromedio3);
             textView.setText(""+porcNota[2]);
+            if (textView.getText().toString().length()>4){textView.getText().toString().substring(1,4);}
             textView=(TextView)findViewById(R.id.lblPromedio4);
             textView.setText(""+porcNota[3]);
+            if (textView.getText().toString().length()>4){textView.getText().toString().substring(1,4);}
             textView=(TextView)findViewById(R.id.lblPromedio5);
             textView.setText(""+porcNota[4]);
+            if (textView.getText().toString().length()>4){textView.getText().toString().substring(1,4);}
             textView=(TextView)findViewById(R.id.lblPromedio6);
             textView.setText(""+porcNota[5]);
+            if (textView.getText().toString().length()>4){textView.getText().toString().substring(1,4);}
             textView=(TextView)findViewById(R.id.lblPromedio7);
             textView.setText(""+porcNota[6]);
+            if (textView.getText().toString().length()>4){textView.getText().toString().substring(1,4);}
             textView=(TextView)findViewById(R.id.lblPromedio8);
             textView.setText(""+porcNota[7]);
+            if (textView.getText().toString().length()>4){textView.getText().toString().substring(1,4);}
             textView=(TextView)findViewById(R.id.lblPromedio9);
             textView.setText(""+porcNota[8]);
+            if (textView.getText().toString().length()>4){textView.getText().toString().substring(1,4);}
             textView=(TextView)findViewById(R.id.lblPromedio10);
             textView.setText(""+porcNota[9]);
+            if (textView.getText().toString().length()>4){textView.getText().toString().substring(1,4);}
 
         }
     }
@@ -83,7 +96,7 @@ public class Calculador extends AppCompatActivity {
 
         EditText texto = (EditText) findViewById(R.id.txtNota1);
         if (!texto.getText().toString().isEmpty()){nota[0] = Double.parseDouble(texto.getText().toString());}else{nota[0]=1;}
-        nota[0]=Double.parseDouble(texto.getText().toString());
+        //nota[0]=Double.parseDouble(texto.getText().toString());
         texto=(EditText) findViewById(R.id.txtNota2);
         if (!texto.getText().toString().isEmpty()){nota[1] = Double.parseDouble(texto.getText().toString());}
         texto=(EditText) findViewById(R.id.txtNota3);
@@ -126,18 +139,23 @@ public class Calculador extends AppCompatActivity {
         texto=(EditText) findViewById(R.id.txtPorc10);
         if (!texto.getText().toString().isEmpty()){porc[9] = Double.parseDouble(texto.getText().toString());}
     }
+
     private double calcularBruto(){
-        //EditText texto = (EditText) findViewById(R.id.txtNota1);
-        //nota[0] = Double.parseDouble(texto.getText().toString());
+
         double total = 0;
         for (int i =0;i<10;i++){
             total=total + porcNota[i];
         }
        TextView txt=(TextView)findViewById(R.id.notaBruto);
         txt.setText(""+total);
+        if (txt.getText().toString().length()>4)
+        {
+            txt.setText(txt.getText().toString().substring(1,4));
+        }
         return total;
     }
-    private void calcularPromedio(double promBruto){
+
+    private void calcularPromedioFinal(double promBruto){
         double examen=1;
         promBruto=(promBruto*0.6);
         EditText texam = (EditText)findViewById(R.id.examen);
@@ -146,21 +164,39 @@ public class Calculador extends AppCompatActivity {
         double promFinal = promBruto+examen;
         TextView pFinal = (TextView)findViewById(R.id.promedioFinal);
         pFinal.setText(""+promFinal);
+        if (pFinal.getText().toString().length()>4){
+            pFinal.setText(pFinal.getText().toString().substring(1,4));
+        }
+
+        if (texam.getText().toString().isEmpty()) {
+            TextView tvNecesario = (TextView)findViewById(R.id.necEnExamen);
+            double necesario = Double.parseDouble(tvNecesario.getText().toString());
+            if (necesario >= 1 && necesario <= 7) {
+                Toast.makeText(getApplicationContext(), "Aún te puedes salvar con el exámen", Toast.LENGTH_LONG).show();
+            } else if (necesario < 1) {
+                Toast.makeText(getApplicationContext(), "Felicidades pasaste el semestre", Toast.LENGTH_LONG).show();
+            } else if (necesario > 7) {
+                Toast.makeText(getApplicationContext(), "Si el semestre se cierra hoy, no pasarías", Toast.LENGTH_LONG).show();
+            }
+        }
+        else{
+            if (promFinal >= 4 && promFinal <= 7) {
+                Toast.makeText(getApplicationContext(), "Felicitaciones!, haz pasado de este ramo", Toast.LENGTH_LONG).show();
+            } else if (promFinal < 4) {
+                Toast.makeText(getApplicationContext(), "Lo siento, el otro semestre será mejor", Toast.LENGTH_LONG).show();
+            }
+        }
     }
+
     private void calcularNotaRequerida(double bruto){
         double descontado   =   bruto*0.6;
         double prenecesario =   4-descontado;
         double necesario    =   ((prenecesario/4)*10);
-        if (necesario>=1 && necesario<=7){
-            Toast.makeText(getApplicationContext(),"Aún te falta para pasar el año",Toast.LENGTH_LONG).show();
-        }
-        else if(necesario<1){
-            Toast.makeText(getApplicationContext(),"Felicidades pasaste el año",Toast.LENGTH_LONG).show();
-        }
-        else if(necesario>7){
-            Toast.makeText(getApplicationContext(),"Mejor suerte el próximo año, no tienes opción de pasar",Toast.LENGTH_LONG).show();
-        }
+
         TextView txt=(TextView)findViewById(R.id.necEnExamen);
         txt.setText(""+necesario);
+        if (txt.getText().toString().length()>4){
+            txt.setText(txt.getText().toString().substring(1,4));
+        }
     }
 }

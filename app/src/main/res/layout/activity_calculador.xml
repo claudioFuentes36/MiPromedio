@@ -27,7 +27,7 @@
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="300dp"
-            android:layout_weight="0.50">
+            android:layout_weight="0.35">
 
             <android.support.constraint.ConstraintLayout
                 android:id="@+id/NotaGeneral"
@@ -866,7 +866,7 @@
             android:id="@+id/Detalle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="0.50">
+            android:layout_weight="0.65">
 
             <Button
                 android:id="@+id/btnCalcular"
@@ -876,112 +876,105 @@
                 android:layout_marginBottom="8dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
                 android:text="CALCULAR"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.909"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/textView6" />
+                app:layout_constraintStart_toEndOf="@+id/necEnExamen"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/textView6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
-                android:layout_marginStart="4dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginTop="30dp"
                 android:text="Notas Bruto:"
                 android:textColor="#FFFFFF"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.08" />
+                app:layout_constraintEnd_toStartOf="@+id/notaBruto"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/notaBruto"
                 android:layout_width="67dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="88dp"
-                android:layout_marginTop="16dp"
+                android:layout_marginEnd="130dp"
+                android:layout_marginTop="30dp"
                 android:text="0,0"
+                android:textAlignment="center"
                 android:textColor="#FFFFFF"
-                app:layout_constraintStart_toEndOf="@+id/textView6"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/textView16"
                 android:layout_width="138dp"
                 android:layout_height="25dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginTop="15dp"
                 android:text="Requerido en exámen:"
                 android:textColor="#FFFFFF"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/necEnExamen"
                 app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
             <TextView
                 android:id="@+id/necEnExamen"
                 android:layout_width="65dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginEnd="130dp"
+                android:layout_marginTop="15dp"
                 android:text="7"
+                android:textAlignment="center"
                 android:textColor="#FFFFFF"
-                app:layout_constraintStart_toEndOf="@+id/textView16"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/notaBruto" />
 
             <TextView
                 android:id="@+id/textView15"
                 android:layout_width="137dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginTop="15dp"
                 android:text="Nota Examen:"
                 android:textColor="#ffffff"
-                app:layout_constraintStart_toStartOf="@+id/textView16"
-                tools:layout_editor_absoluteY="89dp" />
+                app:layout_constraintEnd_toStartOf="@+id/examen"
+                app:layout_constraintTop_toBottomOf="@+id/textView16" />
 
             <EditText
                 android:id="@+id/examen"
                 android:layout_width="63dp"
                 android:layout_height="26dp"
-                android:layout_marginBottom="44dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginStart="8dp"
+                android:layout_marginEnd="130dp"
+                android:layout_marginTop="15dp"
                 android:background="#FFFFFF"
                 android:ems="10"
                 android:hint="1,0"
                 android:inputType="numberDecimal"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/btnCalcular"
-                app:layout_constraintHorizontal_bias="0.562"
-                app:layout_constraintStart_toEndOf="@+id/textView15"
-                android:textAlignment="center"/>
+                android:textAlignment="center"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/necEnExamen" />
 
             <TextView
                 android:id="@+id/textView17"
                 android:layout_width="137dp"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
-                android:layout_marginStart="8dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginTop="15dp"
                 android:text="Promedio Final"
                 android:textColor="#ffffff"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
+                app:layout_constraintEnd_toStartOf="@+id/promedioFinal"
+                app:layout_constraintTop_toBottomOf="@+id/textView15" />
 
             <TextView
                 android:id="@+id/promedioFinal"
                 android:layout_width="66dp"
                 android:layout_height="27dp"
-                android:layout_marginBottom="8dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginEnd="130dp"
+                android:layout_marginTop="15dp"
                 android:text="1.0"
+                android:textAlignment="center"
                 android:textColor="#FFFFFF"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.114"
-                app:layout_constraintStart_toEndOf="@+id/textView17"
                 app:layout_constraintTop_toBottomOf="@+id/examen" />
         </android.support.constraint.ConstraintLayout>
 
