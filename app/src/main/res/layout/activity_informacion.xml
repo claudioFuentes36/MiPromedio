@@ -37,7 +37,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:text="HOLA A TODOS ESTE PROYECTO ESTA CREADO POR 2 ESTUDIANTES DE ENSEÑANZA SUOERIOR QUE ESTUDIAN ANALISTA PROGRAMADOR COMPUTACIONAL EN EL INSTITUTO DUOC UC QUE CREARON ESTA APLICACION LA CUAL ES GRATUITA PARA SU USO Y EMPEZAR DE A POCO A INGENIAR NUEVOS PROYECTOS."
+        android:text="@string/presentacion"
         android:textColor="@color/blanco"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -84,15 +84,12 @@
 
         <TextView
             android:id="@+id/textView2"
-            android:layout_width="201dp"
+            android:layout_width="129dp"
             android:layout_height="123dp"
             android:layout_marginBottom="8dp"
             android:layout_marginStart="32dp"
             android:layout_marginTop="8dp"
-            android:text="CONTACTO
-Cristopher Sánchez
-Claudio Funetes
-+569"
+            android:text="@string/contacto"
             android:textColor="#FFFFFF"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"

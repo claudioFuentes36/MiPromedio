@@ -45,4 +45,14 @@
     <string name="valorDefecto110">4,0</string>
     <string name="calcular">CALCULAR</string>
     <string name="valorDefecto210">30</string>
+    <string name="presentacion">Hola a todos!
+Mi promedio es una aplicación gratuita orientada a los estudiantes de enseñanza superior que deseen conocer que nota requieran en los exámenes para poder pasar sus ramos.
+Si te gusta compártela! Y si tienes sugerencias háznoslas saber.
+</string>
+    <string name="contacto">CONTACTO
+
+Cristopher Sánchez
+Claudio Fuentes
++569
+</string>
 </resources>
