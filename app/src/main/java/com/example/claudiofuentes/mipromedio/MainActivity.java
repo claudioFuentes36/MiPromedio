@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
         imagenInfo.setOnClickListener((new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent vistaInfo = new Intent(MainActivity.this,Calculador.class);
+                Intent vistaInfo = new Intent(MainActivity.this,Informacion.class);
 
                 startActivity(vistaInfo);
             }
