@@ -3,6 +3,9 @@ package com.example.claudiofuentes.mipromedio;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -43,5 +46,29 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(vistaInfo);
             }
         }));
+
+    }
+   @Override
+    public boolean onCreateOptionsMenu(Menu menu){
+       MenuInflater inflater = getMenuInflater();
+       inflater.inflate(R.menu.configuracion,menu);
+       return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle presses on the action bar items
+        switch (item.getItemId()) {
+            case R.id.action_config:
+                accederConfiguracion();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+    public void accederConfiguracion(){
+        Intent config =   new Intent(MainActivity.this,Configuracion.class);
+        //ejecutar la actividad recien creada
+        startActivity(config);
     }
 }
