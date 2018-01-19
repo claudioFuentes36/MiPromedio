@@ -1,6 +1,8 @@
 package com.example.claudiofuentes.mipromedio;
 
 import android.app.Application;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -24,8 +26,9 @@ public class Calculador extends AppCompatActivity {
         calcular = (Button) findViewById(R.id.btnCalcular);
         nota[0]=1;
         porc[0]=100;
-        notaMinima=1;
+        SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(this);
 
+        notaMinima = Double.parseDouble(pref.getString("prefNotaMinima","1"));
 
         calcular.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view){
