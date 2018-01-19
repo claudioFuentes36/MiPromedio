@@ -15,6 +15,7 @@ public class Calculador extends AppCompatActivity {
     double porcNota[]=new double[10];
     double porc[]=new double[10];
     double nota[]=new double[10];
+    double notaMinima;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +24,7 @@ public class Calculador extends AppCompatActivity {
         calcular = (Button) findViewById(R.id.btnCalcular);
         nota[0]=1;
         porc[0]=100;
+        notaMinima=1;
 
 
         calcular.setOnClickListener(new View.OnClickListener(){
@@ -37,8 +39,16 @@ public class Calculador extends AppCompatActivity {
 
             for (int i  = 0;i<10;i++){
                 if (nota[i] != 0 && porc[i]!= 0){
+                    nota[i]=nota[i];
+                    if (nota[i]>0)
+                    {
+                        porcNota[i]=((porc[i]/100)*nota[i]);
+                    }
+                    else
+                    {
+                        porcNota[i]=notaMinima;
+                    }
 
-                    porcNota[i]=(porc[i]/100)*nota[i];
                 }
                 else{
                     porcNota[i]=0;
@@ -54,42 +64,6 @@ public class Calculador extends AppCompatActivity {
 
 
 
-    }
-
-    private  void asignacionVariables(boolean inversa){
-        if (inversa){
-            TextView textView=(TextView)findViewById(R.id.lblPromedio1);
-            textView.setText(""+porcNota[0]);
-            if (textView.getText().toString().length()>4){textView.getText().toString().substring(1,4);}
-            textView=(TextView)findViewById(R.id.lblPromedio2);
-            textView.setText(""+porcNota[1]);
-            if (textView.getText().toString().length()>4){textView.getText().toString().substring(1,4);}
-            textView=(TextView)findViewById(R.id.lblPromedio3);
-            textView.setText(""+porcNota[2]);
-            if (textView.getText().toString().length()>4){textView.getText().toString().substring(1,4);}
-            textView=(TextView)findViewById(R.id.lblPromedio4);
-            textView.setText(""+porcNota[3]);
-            if (textView.getText().toString().length()>4){textView.getText().toString().substring(1,4);}
-            textView=(TextView)findViewById(R.id.lblPromedio5);
-            textView.setText(""+porcNota[4]);
-            if (textView.getText().toString().length()>4){textView.getText().toString().substring(1,4);}
-            textView=(TextView)findViewById(R.id.lblPromedio6);
-            textView.setText(""+porcNota[5]);
-            if (textView.getText().toString().length()>4){textView.getText().toString().substring(1,4);}
-            textView=(TextView)findViewById(R.id.lblPromedio7);
-            textView.setText(""+porcNota[6]);
-            if (textView.getText().toString().length()>4){textView.getText().toString().substring(1,4);}
-            textView=(TextView)findViewById(R.id.lblPromedio8);
-            textView.setText(""+porcNota[7]);
-            if (textView.getText().toString().length()>4){textView.getText().toString().substring(1,4);}
-            textView=(TextView)findViewById(R.id.lblPromedio9);
-            textView.setText(""+porcNota[8]);
-            if (textView.getText().toString().length()>4){textView.getText().toString().substring(1,4);}
-            textView=(TextView)findViewById(R.id.lblPromedio10);
-            textView.setText(""+porcNota[9]);
-            if (textView.getText().toString().length()>4){textView.getText().toString().substring(1,4);}
-
-        }
     }
 
     private void asignacionVariables(){
@@ -140,6 +114,42 @@ public class Calculador extends AppCompatActivity {
         if (!texto.getText().toString().isEmpty()){porc[9] = Double.parseDouble(texto.getText().toString());}
     }
 
+    private  void asignacionVariables(boolean inversa){
+        if (inversa){
+            TextView textView=(TextView)findViewById(R.id.lblPromedio1);
+            textView.setText(""+porcNota[0]);
+            if (textView.getText().toString().length()>3){textView.setText(textView.getText().toString().substring(0,3));}
+            textView=(TextView)findViewById(R.id.lblPromedio2);
+            textView.setText(""+porcNota[1]);
+            if (textView.getText().toString().length()>3){textView.setText(textView.getText().toString().substring(0,3));}
+            textView=(TextView)findViewById(R.id.lblPromedio3);
+            textView.setText(""+porcNota[2]);
+            if (textView.getText().toString().length()>3){textView.setText(textView.getText().toString().substring(0,3));}
+            textView=(TextView)findViewById(R.id.lblPromedio4);
+            textView.setText(""+porcNota[3]);
+            if (textView.getText().toString().length()>3){textView.setText(textView.getText().toString().substring(0,3));}
+            textView=(TextView)findViewById(R.id.lblPromedio5);
+            textView.setText(""+porcNota[4]);
+            if (textView.getText().toString().length()>3){textView.setText(textView.getText().toString().substring(0,3));}
+            textView=(TextView)findViewById(R.id.lblPromedio6);
+            textView.setText(""+porcNota[5]);
+            if (textView.getText().toString().length()>3){textView.setText(textView.getText().toString().substring(0,3));}
+            textView=(TextView)findViewById(R.id.lblPromedio7);
+            textView.setText(""+porcNota[6]);
+            if (textView.getText().toString().length()>3){textView.setText(textView.getText().toString().substring(0,3));}
+            textView=(TextView)findViewById(R.id.lblPromedio8);
+            textView.setText(""+porcNota[7]);
+            if (textView.getText().toString().length()>3){textView.setText(textView.getText().toString().substring(0,3));}
+            textView=(TextView)findViewById(R.id.lblPromedio9);
+            textView.setText(""+porcNota[8]);
+            if (textView.getText().toString().length()>3){textView.setText(textView.getText().toString().substring(0,3));}
+            textView=(TextView)findViewById(R.id.lblPromedio10);
+            textView.setText(""+porcNota[9]);
+            if (textView.getText().toString().length()>3){textView.setText(textView.getText().toString().substring(0,3));}
+
+        }
+    }
+
     private double calcularBruto(){
 
         double total = 0;
@@ -148,24 +158,40 @@ public class Calculador extends AppCompatActivity {
         }
        TextView txt=(TextView)findViewById(R.id.notaBruto);
         txt.setText(""+total);
-        if (txt.getText().toString().length()>4)
+        if (txt.getText().toString().length()>3)
         {
-            txt.setText(txt.getText().toString().substring(1,4));
+            txt.setText(txt.getText().toString().substring(0,3));
         }
         return total;
+    }
+
+    private void calcularNotaRequerida(double bruto){
+        double descontado   =   bruto*0.6;
+        double prenecesario =   4-descontado;
+        double necesario    =   (prenecesario/0.4);
+
+        TextView txt=(TextView)findViewById(R.id.necEnExamen);
+        txt.setText(""+necesario);
+        if (txt.getText().toString().length()>3){
+            txt.setText(txt.getText().toString().substring(0,3));
+        }
+        if (necesario<=0)
+        {
+            txt.setText("0");
+        }
     }
 
     private void calcularPromedioFinal(double promBruto){
         double examen=1;
         promBruto=(promBruto*0.6);
         EditText texam = (EditText)findViewById(R.id.examen);
-        if (!texam.getText().toString().isEmpty()){examen=Double.parseDouble(texam.getText().toString());}else {examen=1;}
+        if (!texam.getText().toString().isEmpty()){examen=Double.parseDouble(texam.getText().toString());}else {examen=notaMinima;}
         examen=(examen*0.4);
         double promFinal = promBruto+examen;
         TextView pFinal = (TextView)findViewById(R.id.promedioFinal);
         pFinal.setText(""+promFinal);
-        if (pFinal.getText().toString().length()>4){
-            pFinal.setText(pFinal.getText().toString().substring(1,4));
+        if (pFinal.getText().toString().length()>3){
+            pFinal.setText(pFinal.getText().toString().substring(0,3));
         }
 
         if (texam.getText().toString().isEmpty()) {
@@ -188,15 +214,4 @@ public class Calculador extends AppCompatActivity {
         }
     }
 
-    private void calcularNotaRequerida(double bruto){
-        double descontado   =   bruto*0.6;
-        double prenecesario =   4-descontado;
-        double necesario    =   ((prenecesario/4)*10);
-
-        TextView txt=(TextView)findViewById(R.id.necEnExamen);
-        txt.setText(""+necesario);
-        if (txt.getText().toString().length()>4){
-            txt.setText(txt.getText().toString().substring(1,4));
-        }
-    }
 }
