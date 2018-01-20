@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
+
     <PreferenceCategory android:title="Configuración Principal">
 
         <EditTextPreference
@@ -11,5 +12,20 @@
             android:selectAllOnFocus="true"
             android:singleLine="true"
             android:title="Nota Minima permitida" />
+        <EditTextPreference
+            android:defaultValue="4"
+            android:key="prefNotaMedia"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:title="Minimo exigido"
+            android:inputType="numberDecimal"/>
+        <EditTextPreference
+            android:defaultValue="40"
+            android:inputType="numberDecimal"
+            android:key="prefPorcExam"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:title="Porcentaje correspondiente al examen"/>
+
     </PreferenceCategory>
 </PreferenceScreen>

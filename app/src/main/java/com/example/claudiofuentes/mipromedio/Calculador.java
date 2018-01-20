@@ -18,6 +18,8 @@ public class Calculador extends AppCompatActivity {
     double porc[]=new double[10];
     double nota[]=new double[10];
     double notaMinima;
+    double notaMedia;
+    double porcExam;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +31,8 @@ public class Calculador extends AppCompatActivity {
         SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(this);
 
         notaMinima = Double.parseDouble(pref.getString("prefNotaMinima","1"));
+        notaMedia  = Double.parseDouble(pref.getString("prefNotaMedia","4"));
+        porcExam   = Double.parseDouble(pref.getString("prefPorcExam","40"));
 
         calcular.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view){
@@ -72,7 +76,7 @@ public class Calculador extends AppCompatActivity {
     private void asignacionVariables(){
 
         EditText texto = (EditText) findViewById(R.id.txtNota1);
-        if (!texto.getText().toString().isEmpty()){nota[0] = Double.parseDouble(texto.getText().toString());}else{nota[0]=1;}
+        if (!texto.getText().toString().isEmpty()){nota[0] = Double.parseDouble(texto.getText().toString());}else{nota[0]=notaMinima;}
         //nota[0]=Double.parseDouble(texto.getText().toString());
         texto=(EditText) findViewById(R.id.txtNota2);
         if (!texto.getText().toString().isEmpty()){nota[1] = Double.parseDouble(texto.getText().toString());}
@@ -169,9 +173,9 @@ public class Calculador extends AppCompatActivity {
     }
 
     private void calcularNotaRequerida(double bruto){
-        double descontado   =   bruto*0.6;
-        double prenecesario =   4-descontado;
-        double necesario    =   (prenecesario/0.4);
+        double descontado   =   bruto*((100-porcExam)/100);
+        double prenecesario =   notaMedia-descontado;
+        double necesario    =   (prenecesario/(porcExam/100));
 
         TextView txt=(TextView)findViewById(R.id.necEnExamen);
         txt.setText(""+necesario);
@@ -186,10 +190,10 @@ public class Calculador extends AppCompatActivity {
 
     private void calcularPromedioFinal(double promBruto){
         double examen=1;
-        promBruto=(promBruto*0.6);
+        promBruto=(promBruto*((100-porcExam)/100));
         EditText texam = (EditText)findViewById(R.id.examen);
         if (!texam.getText().toString().isEmpty()){examen=Double.parseDouble(texam.getText().toString());}else {examen=notaMinima;}
-        examen=(examen*0.4);
+        examen=(examen*(porcExam/100));
         double promFinal = promBruto+examen;
         TextView pFinal = (TextView)findViewById(R.id.promedioFinal);
         pFinal.setText(""+promFinal);
@@ -200,18 +204,18 @@ public class Calculador extends AppCompatActivity {
         if (texam.getText().toString().isEmpty()) {
             TextView tvNecesario = (TextView)findViewById(R.id.necEnExamen);
             double necesario = Double.parseDouble(tvNecesario.getText().toString());
-            if (necesario >= 1 && necesario <= 7) {
+            if (necesario >= notaMinima && necesario <= 7) {
                 Toast.makeText(getApplicationContext(), "Aún te puedes salvar con el exámen", Toast.LENGTH_LONG).show();
-            } else if (necesario < 1) {
+            } else if (necesario < notaMinima) {
                 Toast.makeText(getApplicationContext(), "Felicidades pasaste el semestre", Toast.LENGTH_LONG).show();
             } else if (necesario > 7) {
                 Toast.makeText(getApplicationContext(), "Si el semestre se cierra hoy, no pasarías", Toast.LENGTH_LONG).show();
             }
         }
         else{
-            if (promFinal >= 4 && promFinal <= 7) {
+            if (promFinal >= notaMedia && promFinal <= 7) {
                 Toast.makeText(getApplicationContext(), "Felicitaciones!, haz pasado de este ramo", Toast.LENGTH_LONG).show();
-            } else if (promFinal < 4) {
+            } else if (promFinal < notaMedia) {
                 Toast.makeText(getApplicationContext(), "Lo siento, el otro semestre será mejor", Toast.LENGTH_LONG).show();
             }
         }
