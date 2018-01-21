@@ -8,4 +8,6 @@
     <!-- Settings, should always be in the overflow -->
     <item android:id="@+id/action_config"
         android:title="configuración"/>
+    <!--item android:id="@+id/action_contacto"
+        android:title="contactanos"></item-->
 </menu>

@@ -15,6 +15,7 @@ public class MainActivity extends AppCompatActivity {
 
     Button botonAcceso;
     ImageButton imagenInfo;
+    Button auxiliar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
         //Referencia al botón mediante la carpeta Recursos (R), id (no visible en carpeta).
         botonAcceso = (Button) findViewById(R.id.btnAcceso);
         imagenInfo  = (ImageButton)findViewById(R.id.logoCorporativo);
+        auxiliar    = (Button)findViewById(R.id.botonAuxiliar);
 
         //Agregar un listener, es decir la accion.
         botonAcceso.setOnClickListener(new View.OnClickListener() {
@@ -46,6 +48,12 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(vistaInfo);
             }
         }));
+        auxiliar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                accederContacto();
+            }
+        });
 
     }
    @Override
@@ -62,6 +70,10 @@ public class MainActivity extends AppCompatActivity {
             case R.id.action_config:
                 accederConfiguracion();
                 return true;
+           // case R.id.action_contacto:
+             //   accederContacto();
+               // return true;
+
             default:
                 return super.onOptionsItemSelected(item);
         }
@@ -70,5 +82,9 @@ public class MainActivity extends AppCompatActivity {
         Intent config =   new Intent(MainActivity.this,Configuracion.class);
         //ejecutar la actividad recien creada
         startActivity(config);
+    }
+    public void accederContacto(){
+        Intent contact = new Intent(MainActivity.this,Contacto.class);
+        startActivity(contact);
     }
 }
