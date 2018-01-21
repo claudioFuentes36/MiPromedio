@@ -37,19 +37,17 @@
                     android:layout_height="wrap_content">
 
                     <ImageView
-                        android:id="@+id/imageView6"
-                        android:layout_width="280dp"
-                        android:layout_height="332dp"
+                        android:id="@+id/imageView4"
+                        android:layout_width="225dp"
+                        android:layout_height="285dp"
                         android:layout_marginBottom="8dp"
                         android:layout_marginEnd="8dp"
                         android:layout_marginStart="8dp"
-                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintBottom_toBottomOf="@+id/imageView6"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.505"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/textView18"
-                        app:layout_constraintVertical_bias="1.0"
-                        app:srcCompat="@drawable/mono" />
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/pasos" />
 
                     <TextView
                         android:id="@+id/textView18"
@@ -58,13 +56,23 @@
 
                         android:layout_marginEnd="8dp"
                         android:layout_marginStart="8dp"
-                        android:layout_marginTop="8dp"
                         android:text="@string/presentacion"
                         android:textColor="@color/blanco"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.0"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        tools:layout_editor_absoluteY="25dp" />
+
+                    <ImageView
+                        android:id="@+id/imageView6"
+                        android:layout_width="280dp"
+                        android:layout_height="332dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginStart="8dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:srcCompat="@drawable/mono" />
 
                 </android.support.constraint.ConstraintLayout>
 
