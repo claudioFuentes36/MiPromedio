@@ -6,14 +6,17 @@
 
         <EditTextPreference
             android:defaultValue="1"
-            android:icon="@drawable/minima"
+            android:icon="@drawable/tuercaop1"
             android:inputType="numberDecimal"
             android:key="prefNotaMinima"
             android:selectAllOnFocus="true"
             android:singleLine="true"
             android:title="Nota Minima permitida" />
+
+
         <EditTextPreference
             android:defaultValue="4"
+            android:icon="@drawable/tuercaop4"
             android:key="prefNotaMedia"
             android:selectAllOnFocus="true"
             android:singleLine="true"
@@ -21,6 +24,7 @@
             android:inputType="numberDecimal"/>
         <EditTextPreference
             android:defaultValue="40"
+            android:icon="@drawable/hoja"
             android:inputType="numberDecimal"
             android:key="prefPorcExam"
             android:selectAllOnFocus="true"
