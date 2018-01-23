@@ -71,17 +71,13 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/tytulo" />
 
-    <Button
+    <ImageButton
         android:id="@+id/botonAuxiliar"
         android:layout_width="131dp"
-        android:layout_height="46dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
+        android:layout_height="87dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:background="@drawable/monogarabato"
         android:text="contactanos"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/logoCorporativo"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnAcceso" />
+        app:layout_constraintBottom_toBottomOf="@+id/logoCorporativo"
+        app:layout_constraintStart_toStartOf="parent" />
 </android.support.constraint.ConstraintLayout>

@@ -4,69 +4,106 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/fondo"
     tools:context="com.example.claudiofuentes.mipromedio.Contacto">
 
-    <LinearLayout android:id="@+id/LinearLayout01"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:orientation="vertical"
-        xmlns:android="http://schemas.android.com/apk/res/android">
-        <LinearLayout android:id="@+id/LinearLayout02"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <TextView
-                android:id="@+id/txtForEmail"
-                android:text="Destinatario"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                ></TextView>
+    <TextView
+        android:id="@+id/txtForEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="30dp"
+        android:text="Destinatario:   wakeupaplicaciones@gmail.com"
+        android:textColor="#FFFFFF"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"></TextView>
 
-            <TextView
-                android:id="@+id/etEmail"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:width="170dip"
-                android:text="contacto@correo.cl"></TextView>
-        </LinearLayout>
-        <LinearLayout android:id="@+id/LinearLayout03"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <TextView android:text="Asunto"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/txtForSubject"></TextView>
-            <EditText android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:width="170dip"
-                android:id="@+id/etSubject">
-            </EditText>
-        </LinearLayout>
-        <LinearLayout android:id="@+id/LinearLayout04"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <TextView android:text="Mensaje"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/txtForBody"></TextView>
-            <EditText android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:lines="5"
-                android:width="300dip"
-                android:id="@+id/etBody">
-            </EditText>
-        </LinearLayout>
-        <!--CheckBox android:text="Enviar ícono adjunto"
-            android:id="@+id/chkAttachment"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"></CheckBox-->
-        <Button android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/btnSend"
-            android:text="Enviar"
-            android:width="150dip">
-        </Button>
-    </LinearLayout>
+    <TextView
+        android:id="@+id/txtForSubject"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="20dp"
+        android:text="Asunto:  "
+        android:textColor="#FFFFFF"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtForEmail"></TextView>
+
+    <EditText
+        android:id="@+id/etSubject"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="20dp"
+        android:width="170dip"
+        android:background="#FFFFFF"
+        android:textColor="#000000"
+        app:layout_constraintStart_toEndOf="@+id/txtForSubject"
+        app:layout_constraintTop_toBottomOf="@+id/txtForEmail"></EditText>
+
+    <TextView
+        android:id="@+id/txtForBody"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="Mensaje"
+        android:textColor="#FFFFFF"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etSubject" />
+
+    <EditText
+        android:id="@+id/etBody"
+        android:layout_width="260dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:width="300dip"
+        android:background="#FFFFFF"
+        android:hint="@string/contactanos"
+        android:lines="5"
+        android:textAlignment="textStart"
+        android:textSize="14sp"
+        app:layout_constraintStart_toEndOf="@+id/txtForBody"
+        app:layout_constraintTop_toBottomOf="@+id/txtForBody" />
+
+    <Button
+        android:id="@+id/btnSend"
+        style="@android:style/Widget.DeviceDefault.Button.Borderless"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="50dp"
+        android:width="150dip"
+        android:text="Enviar"
+        android:textColor="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etBody"></Button>
+
+    <TextView
+        android:id="@+id/textView19"
+        android:layout_width="213dp"
+        android:layout_height="119dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="8dp"
+        android:background="#ddbb33"
+        android:text="@string/ayudaContacto"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnSend" />
+
+    <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="161dp"
+        android:layout_height="159dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/monoregla" />
+
 </android.support.constraint.ConstraintLayout>

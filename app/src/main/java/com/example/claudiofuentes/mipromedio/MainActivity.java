@@ -15,7 +15,7 @@ public class MainActivity extends AppCompatActivity {
 
     Button botonAcceso;
     ImageButton imagenInfo;
-    Button auxiliar;
+    ImageButton auxiliar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
         //Referencia al botón mediante la carpeta Recursos (R), id (no visible en carpeta).
         botonAcceso = (Button) findViewById(R.id.btnAcceso);
         imagenInfo  = (ImageButton)findViewById(R.id.logoCorporativo);
-        auxiliar    = (Button)findViewById(R.id.botonAuxiliar);
+        auxiliar    = (ImageButton) findViewById(R.id.botonAuxiliar);
 
         //Agregar un listener, es decir la accion.
         botonAcceso.setOnClickListener(new View.OnClickListener() {

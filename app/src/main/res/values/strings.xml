@@ -46,14 +46,17 @@
     <string name="calcular">CALCULAR</string>
     <string name="valorDefecto210">30</string>
     <string name="presentacion">Hola a todos!
-Mi promedio es una aplicación gratuita orientada a los estudiantes de enseñanza superior que deseen conocer que nota requieran en los exámenes para poder pasar sus ramos.
+Mi promedio es una aplicación gratuita orientada a los estudiantes de enseñanza superior que deseen saber que nota necesitan en los exámenes para  pasar sus ramos.
 Si te gusta compártela! Y si tienes sugerencias háznoslas saber.
 </string>
+    <string name="contactanos">Haznos saber tu opión sobre la aplicación, queremos que sea lo más amigable posible contigo.</string>
     <string name="contacto">CONTACTO
 
 Cristopher Sánchez
 Claudio Fuentes
 
-        Correo: claudio-fuentes@hotmail.cl
+        Correo: wakeupaplicaciones@gmail.com
 </string>
+    <string name="correo">wakeupaplicaciones@gmail.com</string>
+    <string name="ayudaContacto">Para hacernos llegar tus comentarios por esta vía necesitas tener instalado y asociado a una cuenta un servidor de correo electrónico, luego de presionar el botón debes seleccionar el servicio asociado para continuar.</string>
 </resources>

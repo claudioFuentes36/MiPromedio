@@ -52,11 +52,11 @@
                     <TextView
                         android:id="@+id/textView18"
                         android:layout_width="283dp"
-                        android:layout_height="68dp"
+                        android:layout_height="113dp"
 
                         android:layout_marginEnd="16dp"
                         android:layout_marginStart="16dp"
-                        android:layout_marginTop="8dp"
+                        android:layout_marginTop="30dp"
                         android:text="@string/presentacion"
                         android:textColor="@color/blanco"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -70,7 +70,7 @@
                         android:layout_marginBottom="8dp"
                         android:layout_marginEnd="8dp"
                         android:layout_marginStart="8dp"
-                        android:layout_marginTop="8dp"
+                        android:layout_marginTop="50dp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.511"
@@ -95,11 +95,11 @@
                     android:id="@+id/imageView5"
                     android:layout_width="113dp"
                     android:layout_height="124dp"
-                    app:srcCompat="@drawable/mono" />
+                    app:srcCompat="@drawable/monoregla" />
 
                 <TextView
                     android:id="@+id/textView2"
-                    android:layout_width="129dp"
+                    android:layout_width="206dp"
                     android:layout_height="123dp"
                     android:layout_marginBottom="8dp"
                     android:layout_marginStart="32dp"

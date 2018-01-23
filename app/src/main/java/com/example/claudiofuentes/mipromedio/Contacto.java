@@ -35,7 +35,7 @@ public class Contacto extends AppCompatActivity {
                 itSend.setType("plain/text");
 
                 //colocamos los datos para el envío
-                itSend.putExtra(android.content.Intent.EXTRA_EMAIL, new String[]{ "thecrisgb33@gmail.com"});
+                itSend.putExtra(android.content.Intent.EXTRA_EMAIL, new String[]{ "wakeupaplicaciones@gmail.com"});
                 itSend.putExtra(android.content.Intent.EXTRA_SUBJECT, etSubject.getText().toString());
                 itSend.putExtra(android.content.Intent.EXTRA_TEXT, etBody.getText());
 
